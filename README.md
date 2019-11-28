@@ -10,24 +10,17 @@ prior to deletion. In fact you can actually turn off deletion all together and j
 about Shreddit) but this will increase how long it takes the script to run as it will be going over all of your messages
 every run.
 
-## Important New Changes (as of Dec 2016)
-
-Due to deprecation of the PRAW 3.x library, Shreddit is using PRAW 4. This requires that OAuth be used to authenticate.
-Thankfully, however, it is much easier than in previous versions. If you are upgrading, [please review the usage section
-to ensure that you have set up credentials correctly.](#configuring-credentials)
-
 ## Pip Installation
 
-`pip install -U shreddit` will install the package and its dependencies, and it will add a `shreddit` command line
+`pip install shreddit` will install the package and its dependencies, and it will add a `shreddit` command line
 utility to your PATH. This is typically either run in a virtualenv or using administrative privileges for global
 installation.
 
 ## Manual Installation
 
 1. Clone the `shreddit` repository to a directory.
-2. From the directory, run `pip install -r requirements.txt`
-3. Run `python setup.py install` to install the package and the `shreddit` command line utility.  This is typically
-   either run in a virtualenv or using administrative privileges for global installation.
+2. From the directory, run `pipenv install`
+3. Run `python setup.py install` to install the package and the `shreddit` command line utility, or alternatively run the module directly with `python -m shreddit.app`.
 
 ## Usage
 
@@ -138,8 +131,3 @@ optional arguments:
 
 - We are relying on Reddit admin words that they do not store edits, deleted posts are still stored in the database
   they are merely inaccessible to the public.
-
-## Donate
-
-A few people have asked about donating so here's a Bitcoin address, any amount is appreciated, spread amongst recent 
-contributors and if there's enough interest a web service may be on the horizon! `1PbeYK7FonjVmgWxf4ieKmvwtomZR1K1Qu`
