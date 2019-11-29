@@ -20,17 +20,22 @@ setup(
     url="https://github.com/x89/Shreddit",
     author="David John",
     author_email="david@vaunt.eu",
-    classifiers=["Development Status :: 4 - Beta",
-                 "Intended Audience :: End Users/Desktop",
-                 "License :: OSI Approved :: BSD License",
-                 "Programming Language :: Python"],
+    classifiers=[
+        "Development Status :: 4 - Beta",
+        "Intended Audience :: End Users/Desktop",
+        "License :: OSI Approved :: BSD License",
+        "Programming Language :: Python"],
     license="FreeBSD License",
     packages=["shreddit"],
-    install_requires=["arrow", "backports-abc", "praw>=4", "PyYAML", "requests", "six", "tornado"],
-    package_data={"shreddit": ["*.example"]},
+    install_requires=[
+            "arrow",
+            "backports-abc",
+            "praw>=4",
+            "PyYAML",
+            "requests",
+            "six",
+            "tornado"],
+    package_data={
+        "shreddit": ["*.example"]},
     entry_points={
-        "console_scripts": [
-            "shreddit=shreddit.app:main"
-        ]
-    }
-)
+        "console_scripts": ["shreddit=shreddit.app:main"]})

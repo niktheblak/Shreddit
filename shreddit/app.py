@@ -1,32 +1,49 @@
 """This module contains script entrypoints for shreddit.
 """
 import argparse
-import yaml
-import logging
 import os
+
 import pkg_resources
+import yaml
 from appdirs import user_config_dir
+
 from shreddit import default_config
 from shreddit.shredder import Shredder
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Command-line frontend to the shreddit library.")
-    parser.add_argument("-c", "--config", help="Config file to use instead of the default shreddit.yml")
-    parser.add_argument("-g", "--generate-configs", help="Write shreddit and praw config files to current directory.",
-                        action="store_true")
-    parser.add_argument("-u", "--user", help="User section from praw.ini if not default", default="default")
+    parser = argparse.ArgumentParser(
+        description="Command-line frontend to the shreddit library.")
+    parser.add_argument(
+        "-c",
+        "--config",
+        help="Config file to use instead of the default shreddit.yml")
+    parser.add_argument(
+        "-g",
+        "--generate-configs",
+        help="Write shreddit and praw config files to current directory.",
+        action="store_true")
+    parser.add_argument(
+        "-u",
+        "--user",
+        help="User section from praw.ini if not default",
+        default="default")
     args = parser.parse_args()
 
     if args.generate_configs:
         if not os.path.isfile("shreddit.yml"):
             print("Writing shreddit.yml file...")
             with open("shreddit.yml", "wb") as fout:
-                fout.write(pkg_resources.resource_string("shreddit", "shreddit.yml.example"))
+                fout.write(
+                    pkg_resources.resource_string(
+                        "shreddit",
+                        "shreddit.yml.example"))
         if not os.path.isfile("praw.ini"):
             print("Writing praw.ini file...")
             with open("praw.ini", "wb") as fout:
-                fout.write(pkg_resources.resource_string("shreddit", "praw.ini.example"))
+                fout.write(
+                    pkg_resources.resource_string(
+                        "shreddit", "praw.ini.example"))
         return
 
     config_dir = user_config_dir("shreddit/shreddit.yml")
