@@ -32,7 +32,8 @@ setup(
             "praw>=4",
             "PyYAML",
             "requests",
-            "six"],
+            "six",
+            "loremipsum"],
     package_data={
         "shreddit": ["*.example"]},
     entry_points={

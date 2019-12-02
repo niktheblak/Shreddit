@@ -11,6 +11,7 @@ arrow = "*"
 praw = "*"
 prawcore = "*"
 PyYAML = "*"
+loremipsum = "*"
 
 [requires]
 python_version = "3.8"

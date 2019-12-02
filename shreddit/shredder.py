@@ -6,10 +6,11 @@ from re import sub
 
 import arrow
 import praw
+from loremipsum import get_sentence
 from praw.models import Comment, Submission
 from prawcore.exceptions import ResponseException, OAuthException, BadRequest
 
-from shreddit.util import get_sentence, ShredditError
+from shreddit.util import ShredditError
 
 
 class Shredder(object):
