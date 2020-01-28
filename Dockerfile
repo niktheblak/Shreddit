@@ -1,8 +1,9 @@
 FROM python:3.8-slim-buster
 
 RUN pip install --no-cache-dir \
-    pipenv
-ADD Pipfile* ./
-RUN pipenv install --deploy --system
+    poetry
+ADD pyproject.toml ./
+ADD poetry.lock ./
+RUN poetry install --no-root --no-dev
 ADD . .
-ENTRYPOINT ["python", "-m", "shreddit.app"]
+ENTRYPOINT ["poetry", "run", "python", "-m", "shreddit.app"]
